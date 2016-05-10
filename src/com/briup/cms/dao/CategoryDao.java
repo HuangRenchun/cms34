@@ -13,6 +13,36 @@ import com.briup.cms.common.ConnectionFactory;
  * */
 public class CategoryDao {
 	/**
+	 * 删除
+	 * */
+	public void deleteById(long id){
+		try{
+			Connection conn =null;
+			PreparedStatement pstmt = null;
+			try{
+				//1.注册驱动，获取连接
+				conn = ConnectionFactory.getConn();
+				String sql = "delete from t_category where id = ?";
+				//2.预处理sql
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setLong(1, id);
+				//3.执行sql
+				pstmt.executeUpdate();
+			}finally{
+				//4.释放资源
+				if(pstmt!=null){
+					pstmt.close();
+				}
+				if(conn!=null){
+					pstmt.close();
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	/**
 	 * 保存
 	 * @param  栏目
 	 * */
@@ -43,6 +73,8 @@ public class CategoryDao {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	public List<Category> findAll(){
 		List<Category> list = new ArrayList<Category>();
 		try{
@@ -52,7 +84,7 @@ public class CategoryDao {
 			try{
 				//1.注册驱动，获取连接
 				conn = ConnectionFactory.getConn();
-				String sql = "from t_category";
+				String sql = "select * from t_category";
 				//2. 预处理
 				pstmt = conn.prepareStatement(sql);
 				//3.执行

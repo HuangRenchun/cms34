@@ -1,5 +1,7 @@
 package com.briup.cms.web.action.manager;
 
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 
@@ -15,12 +17,14 @@ public class CategoryAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	//同名参数传值
+	private Long id;
 	private String name;
 	private Integer code;
 	
 	//创建service层对象，方便action各个方法去调用
 	private ICategoryService categoryService = new CategoryServiceImpl();
 	
+	private List<Category> categoryList;
 	
 	/**
 	 * 跳转到添加栏目页面
@@ -41,6 +45,8 @@ public class CategoryAction extends ActionSupport {
 	@Action(value="toCategoryManager",
 			results={@Result(name="success",location="/WEB-INF/jsp/manager/categoryManager.jsp")})
 	public String toCategoryManager(){
+		//调用service层的方法查询所有的栏目信息，并且将这些值赋给categoryList
+		categoryList = categoryService.list();
 		return SUCCESS;//"success"
 	}
 	
@@ -55,7 +61,16 @@ public class CategoryAction extends ActionSupport {
 		//调用sercice层的服务，完成添加栏目的功能
 		categoryService.add(category);
 	}
-
+	
+	/**
+	 * 添加栏目
+	 * @author 王五
+	 * */
+	@Action(value="delCategory")
+	public void delCategory(){
+		categoryService.delete(id);
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -71,4 +86,21 @@ public class CategoryAction extends ActionSupport {
 	public void setCode(Integer code) {
 		this.code = code;
 	}
+
+	public List<Category> getCategoryList() {
+		return categoryList;
+	}
+
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

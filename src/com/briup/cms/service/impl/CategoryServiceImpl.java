@@ -18,13 +18,13 @@ public class CategoryServiceImpl implements ICategoryService {
 	
 	@Override
 	public List<Category> list() {
-		
-		return null;
+		List<Category> list = categoryDao.findAll();
+		return list;
 	}
 	
 	@Override
 	public void delete(long id) {
-		
+		categoryDao.deleteById(id);
 	}
 
 }

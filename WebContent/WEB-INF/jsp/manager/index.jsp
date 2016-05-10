@@ -56,7 +56,10 @@ $(function(){
 							<a href="#"><em class="base_sys"></em><span>信息管理</span></a>
 						</li>
 						<li url="">
-							<a href="#"><em class="base_sys"></em><span>会员管理</span></a>
+							<a href="#"><em class="base_sys"></em><span>添加房产</span></a>
+						</li>
+						<li url="">
+							<a href="#"><em class="base_sys"></em><span>房产管理</span></a>
 						</li>
 					</ul>
 				</div>

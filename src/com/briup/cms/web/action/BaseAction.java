@@ -25,6 +25,7 @@ public class BaseAction extends ActionSupport {
 	@Action(value="toIndex",results={
 			@Result(name="success",location="/WEB-INF/jsp/index.jsp")})
 	public String toIndex(){
+		//调用service层方法查询所有栏目的信息，并且将查到的数据赋给categoryList
 		categoryList = categoryService.list();
 		return "success";
 	}
