@@ -18,15 +18,19 @@
 <table  border="1" style="width: 100%;border-collapse: collapse;margin-top: 10px" >
 	<tr>
 		<th>编号</th>
-		<th>栏目名称</th>
-		<th>栏目编号</th>
+		<th>标题</th>
+		<th>作者</th>
+		<th>发布时间</th>
+		<th>点击次数</th>
 		<th>操作</th>
 	</tr>
-	<c:forEach items="${categoryList }" var="c">
+	<c:forEach items="${articleList }" var="c">
 	<tr>
 		<td><input type="checkbox" value="${c.id }"/></td>
-		<td>${c.name }</td>
-		<td>${c.code }</td>
+		<td>${c.title }</td>
+		<td>${c.author }</td>
+		<td>${c.publisurDate }</td>
+		<td>${c.clickTimes }</td>
 		<td>
 			<a href="javascript:void(0);" val="${c.id }" class="upd">修改</a>
 			<a href="javascript:void(0);" val="${c.id }" class="del">删除</a>
@@ -46,7 +50,7 @@ $(function(){
 		var flag = confirm("确定删除吗？");
 		if(flag){
 			var id = $(this).attr("val");
-			$.post("delCategory.action",{id:id},function(){
+			$.post("delArticle.action",{id:id},function(){
 				$(".baseUI li :contains('栏目管理')").trigger("click");
 			});
 		}
