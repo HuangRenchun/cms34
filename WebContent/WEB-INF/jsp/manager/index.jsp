@@ -49,10 +49,12 @@ $(function(){
 						<li url="toCategoryManager.action">
 							<a href="#"><em class="base_userset"></em><span>栏目管理</span></a>
 						</li>
-						<li url="">
+						<!-- 赵六 -->
+						<li url="toAddArticle.action">
 							<a href="#"><em class="base_roll"></em><span>信息发布</span></a>
 						</li>
-						<li url="">
+						<!-- 郭七 -->
+						<li url="toArticleManager.action">
 							<a href="#"><em class="base_sys"></em><span>信息管理</span></a>
 						</li>
 						<li url="">
