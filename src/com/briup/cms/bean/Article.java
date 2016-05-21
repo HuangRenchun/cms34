@@ -53,5 +53,11 @@ public class Article {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", title=" + title + ", author=" + author
+				+ ", content=" + content + ", publisurDate=" + publisurDate
+				+ ", clickTimes=" + clickTimes + ", c_id=" + c_id + "]";
+	}
 	
 }

@@ -16,7 +16,7 @@
             	<ul class="navUI">
                 	<li><a href="toIndex.action">首页</a></li>
                 	<c:forEach items="${categoryList }" var="c">
-                		<li><a href="toList.action">${c.name }</a></li>
+                		<li><a href="toList.action?c_id=${c.id }">${c.name }</a></li>
                 	</c:forEach>
                     
                 </ul>

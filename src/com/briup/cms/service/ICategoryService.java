@@ -14,4 +14,8 @@ public interface ICategoryService {
 	List<Category> list();
 	//删除栏目
 	void delete(long id);
+	//通过id获取栏目信息
+	Category findById(long id);
+	//修改栏目信息
+	void update(Category category);
 }

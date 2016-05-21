@@ -25,6 +25,7 @@ public class CategoryAction extends ActionSupport {
 	private ICategoryService categoryService = new CategoryServiceImpl();
 	
 	private List<Category> categoryList;
+	private Category category;
 	
 	/**
 	 * 跳转到添加栏目页面
@@ -50,6 +51,27 @@ public class CategoryAction extends ActionSupport {
 		return SUCCESS;//"success"
 	}
 	
+	@Action(value="toUpdCategory",
+			results={@Result(name="success",location="/WEB-INF/jsp/manager/updCategory.jsp")})
+	public String toUpdCategory(){
+		//调用service层的方法通过id查询要修改栏目的信息
+		category = categoryService.findById(id);
+		return SUCCESS;//"success"
+	}
+	
+	
+	@Action(value="updCategory")
+	public void updCategory(){
+		//将接收到的参数进行封装，封装为一个对象
+		Category category = new Category();
+		category.setId(id);
+		category.setName(name);
+		category.setCode(code);
+		//调用sercice层的服务，完成添加栏目的功能
+		categoryService.update(category);
+	}
+	
+	
 	/**
 	 * 添加栏目
 	 * @author 李四
@@ -61,6 +83,7 @@ public class CategoryAction extends ActionSupport {
 		//调用sercice层的服务，完成添加栏目的功能
 		categoryService.add(category);
 	}
+	
 	
 	/**
 	 * 添加栏目
@@ -101,6 +124,14 @@ public class CategoryAction extends ActionSupport {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 }

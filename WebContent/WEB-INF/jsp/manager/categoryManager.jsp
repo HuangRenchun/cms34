@@ -38,7 +38,8 @@
 $(function(){
 	$(".upd").off();
 	$(".upd").on("click",function(){
-		alert("功能未完善");
+		var id = $(this).attr("val");
+		$(".right").load("toUpdCategory.action",{id:id});
 	});
 	
 	$(".del").off();

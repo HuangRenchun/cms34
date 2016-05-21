@@ -24,6 +24,8 @@ $(function(){
 		var url = $(this).attr("url");
 		$(".right").load(url);		
 	});
+	$(".baseUI li").filter(":first").trigger("click");
+	
 });
 </script>
 <body>
@@ -33,6 +35,9 @@ $(function(){
 				<div class="t_logo"></div>
 				<div class="t_sign">
 					<span>你好，管理员</span><a href="#" class="t_exit">退出</a>
+				</div>
+				<div style="position: absolute;top:10px;right: 20px">
+					<a href="../toIndex.action" target="_blank">跳转到前台首页</a>
 				</div>
 			</div>
 		</div>
@@ -57,7 +62,7 @@ $(function(){
 						<li url="toArticleManager.action">
 							<a href="#"><em class="base_sys"></em><span>信息管理</span></a>
 						</li>
-						<li url="">
+						<li url="toAddHome.action">
 							<a href="#"><em class="base_sys"></em><span>添加房产</span></a>
 						</li>
 						<li url="">
